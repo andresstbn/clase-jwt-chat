@@ -1,0 +1,76 @@
+:root {
+  --fondo: #f6f5f2;
+  --panel: #fff;
+  --lateral: #1f2a37;
+  --lateral-texto: #cbd5e1;
+  --texto: #1c1917;
+  --tenue: #6b6560;
+  --borde: #e4e1db;
+  --acento: #0f766e;
+  font-family: system-ui, sans-serif;
+  color: var(--texto);
+  background: var(--fondo);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+#root { height: 100dvh; display: flex; flex-direction: column; }
+a { color: var(--acento); }
+button, input { font: inherit; }
+:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
+
+.barra {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.75rem 1.25rem; background: var(--panel); border-bottom: 1px solid var(--borde);
+}
+.marca { font-weight: 700; color: var(--texto); text-decoration: none; }
+
+.chat { flex: 1; min-height: 0; display: grid; grid-template-columns: 15rem 1fr; }
+
+.canales { background: var(--lateral); padding: 1rem 0.5rem; overflow-y: auto; }
+.canales h2 {
+  margin: 0 0.75rem 0.5rem; font-size: 0.75rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--lateral-texto);
+}
+.canales button {
+  display: block; width: 100%; padding: 0.4rem 0.75rem; border: 0; border-radius: 6px;
+  background: none; color: var(--lateral-texto); text-align: left; cursor: pointer;
+}
+.canales button:hover { background: #ffffff1a; }
+.canales button.activo { background: var(--acento); color: #fff; }
+.canales :focus-visible { outline-color: #fff; }
+
+.mensajes { display: flex; flex-direction: column; min-height: 0; background: var(--panel); }
+.mensajes header { padding: 1rem 1.5rem; border-bottom: 1px solid var(--borde); }
+.mensajes h1 { margin: 0; font-size: 1.15rem; }
+.mensajes header p { margin: 0.15rem 0 0; color: var(--tenue); font-size: 0.9rem; }
+.mensajes ul { flex: 1; overflow-y: auto; margin: 0; padding: 1rem 1.5rem; list-style: none; }
+.mensajes li { margin-bottom: 1rem; }
+.mensajes li p { margin: 0.15rem 0 0; line-height: 1.45; }
+.mensajes time, .mensajes small { margin-left: 0.5rem; color: var(--tenue); font-size: 0.8rem; }
+.vacio { margin: auto; color: var(--tenue); }
+.aviso {
+  margin: 0; padding: 0.75rem 1.5rem; border-top: 1px solid var(--borde);
+  color: var(--tenue); font-size: 0.9rem;
+}
+.error { margin: 1rem 1.5rem 0; color: #b91c1c; }
+
+.login { flex: 1; display: grid; place-items: center; padding: 1rem; }
+.login form {
+  display: grid; gap: 1rem; width: min(22rem, 100%); padding: 2rem;
+  background: var(--panel); border: 1px solid var(--borde); border-radius: 10px;
+}
+.login h1 { margin: 0; font-size: 1.3rem; }
+.login label { display: grid; gap: 0.3rem; font-size: 0.9rem; }
+.login input { padding: 0.55rem 0.7rem; border: 1px solid var(--borde); border-radius: 6px; }
+.login button {
+  padding: 0.6rem; border: 0; border-radius: 6px;
+  background: var(--acento); color: #fff; font-weight: 600; cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .chat { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+  .canales { display: flex; gap: 0.25rem; padding: 0.5rem; overflow-x: auto; }
+  .canales h2 { display: none; }
+  .canales button { width: auto; white-space: nowrap; }
+}

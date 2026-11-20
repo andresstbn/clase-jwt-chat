@@ -1,0 +1,13 @@
+{
+  "name": "clase-jwt-chat",
+  "image": "mcr.microsoft.com/devcontainers/python:3.13",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": { "version": "24" }
+  },
+  "postCreateCommand": "bash .devcontainer/instalar.sh",
+  "forwardPorts": [8000, 5173],
+  "portsAttributes": {
+    "8000": { "label": "Backend (Django)" },
+    "5173": { "label": "Frontend (Vite)" }
+  }
+}
